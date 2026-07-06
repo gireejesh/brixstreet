@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties Portfolio | BrixStreet Realtors - Truth & Transparency</title>
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Browse BrixStreet Realtors' exclusive portfolios. Filter through signature luxury estates, prime commercial complexes, and modern residential villas built on truth and transparency.">
+    <link rel="canonical" href="https://www.brixstreet.com/properties.html">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom Style Sheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Schema Markup JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "BrixStreet Realtors",
+      "image": "https://www.brixstreet.com/images/hero.png",
+      "@id": "https://www.brixstreet.com/#agent",
+      "url": "https://www.brixstreet.com",
+      "telephone": "+1-212-555-8900",
+      "priceRange": "$$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "750 Fifth Avenue, Suite 4500",
+        "addressLocality": "Manhattan",
+        "addressRegion": "NY",
+        "postalCode": "10019",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.76182,
+        "longitude": -73.975438
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/brixstreet",
+        "https://www.instagram.com/brixstreet",
+        "https://www.linkedin.com/company/brixstreet"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="mainNavbar" aria-label="Main Navigation">
+            <div class="container">
+                <a class="navbar-brand" href="index.html" aria-label="BrixStreet Realtors Home">BRIX<span>STREET</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation Menu">
+                    <span class="toggler-icon"></span>
+                    <span class="toggler-icon"></span>
+                    <span class="toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="properties.html" aria-current="page">Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                            <a class="btn btn-outline-gold px-4 py-2" href="contact.html" style="font-size: 0.75rem; padding: 0.6rem 1.5rem;" aria-label="Contact Advisory Board">Advisory Board</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Hero Section -->
+        <section class="page-hero" style="background-image: url('images/hero.png');" aria-label="Introduction Banner">
+            <div class="page-hero-overlay"></div>
+            <div class="container page-hero-content text-center text-md-start">
+                <div class="row">
+                    <div class="col-lg-8 animate-slide-up">
+                        <nav aria-label="Breadcrumb">
+                            <ul class="breadcrumb-custom justify-content-center justify-content-md-start">
+                                <li><a href="index.html">Home</a></li>
+                                <li class="text-white-50">Properties</li>
+                            </ul>
+                        </nav>
+                        <h1 class="display-4 font-heading text-white fw-bold mb-0" style="font-weight: 300;">Our Signature Portfolios</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters & Property Grid -->
+        <section class="section-padding" aria-label="Properties Directory">
+            <div class="container">
+                <!-- Filter Tabs -->
+                <div class="row">
+                    <div class="col-12 text-center animate-fade-in">
+                        <div class="filter-tabs" role="tablist" aria-label="Filter Properties by Type">
+                            <button class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true" aria-label="View all properties">All Portfolios</button>
+                            <button class="filter-tab-btn" data-filter="residential" role="tab" aria-selected="false" aria-label="Filter by residential properties">Residential Villas</button>
+                            <button class="filter-tab-btn" data-filter="commercial" role="tab" aria-selected="false" aria-label="Filter by commercial complexes">Commercial Hubs</button>
+                            <button class="filter-tab-btn" data-filter="luxury" role="tab" aria-selected="false" aria-label="Filter by elite luxury homes">Luxury Homes</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property Grid -->
+                <div class="row g-4 mt-2">
+                    <!-- Property 1 (Luxury) -->
+                    <div class="col-lg-4 col-md-6 property-item animate-slide-up" data-category="luxury" style="transition: all 0.3s ease;">
+                        <article class="property-card">
+                            <span class="property-badge luxury-badge">Exclusive</span>
+                            <div class="property-img-wrap">
+                                <img src="images/luxury.png" alt="Spacious penthouse living room with full Manhattan skyline views" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Penthouse</span>
+                                <h3 class="property-title"><a href="#">The Aurelia Penthouse</a></h3>
+                                <div class="property-price">$12,450,000</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Fifth Avenue Skyline, Manhattan, NY</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 4 Beds</span>
+                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 4.5 Baths</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 5,800 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Property 2 (Residential) -->
+                    <div class="col-lg-4 col-md-6 property-item animate-slide-up" data-category="residential" style="transition: all 0.3s ease; transition-delay: 0.1s;">
+                        <article class="property-card">
+                            <span class="property-badge">For Sale</span>
+                            <div class="property-img-wrap">
+                                <img src="images/hero.png" alt="Obsidian Villa exterior front yard landscaping and pool during sunset" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Modern Villa</span>
+                                <h3 class="property-title"><a href="#">The Obsidian Villa</a></h3>
+                                <div class="property-price">$8,200,000</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Beverly Crest, Beverly Hills, CA</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 5 Beds</span>
+                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 6 Baths</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 7,200 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Property 3 (Commercial) -->
+                    <div class="col-lg-4 col-md-6 property-item animate-slide-up" data-category="commercial" style="transition: all 0.3s ease; transition-delay: 0.2s;">
+                        <article class="property-card">
+                            <span class="property-badge">Corporate Lease</span>
+                            <div class="property-img-wrap">
+                                <img src="images/commercial.png" alt="Helix commercial business tower glass skyscraper in corporate financial district" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Commercial Office</span>
+                                <h3 class="property-title"><a href="#">The Helix Headquarters</a></h3>
+                                <div class="property-price">$140,000 / mo</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Canary Wharf Financial Hub, London</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-door-open" aria-hidden="true"></i> 12 Offices</span>
+                                    <span class="property-meta-item"><i class="fas fa-parking" aria-hidden="true"></i> 25 Slots</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 18,500 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Property 4 (Luxury) -->
+                    <div class="col-lg-4 col-md-6 property-item animate-slide-up" data-category="luxury" style="transition: all 0.3s ease;">
+                        <article class="property-card">
+                            <span class="property-badge luxury-badge">Exclusive</span>
+                            <div class="property-img-wrap">
+                                <img src="images/hero.png" alt="Waterfront luxury villa mansion facade design" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Waterfront Estate</span>
+                                <h3 class="property-title"><a href="#">The Crown Jewel Estate</a></h3>
+                                <div class="property-price">$24,500,000</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Billionaire's Row, Miami Beach, FL</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 7 Beds</span>
+                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 9 Baths</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 12,400 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Property 5 (Commercial) -->
+                    <div class="col-lg-4 col-md-6 property-item animate-slide-up" data-category="commercial" style="transition: all 0.3s ease; transition-delay: 0.1s;">
+                        <article class="property-card">
+                            <span class="property-badge">Under Syndicate</span>
+                            <div class="property-img-wrap">
+                                <img src="images/commercial.png" alt="Modern mixed-use retail center building exterior facade" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Retail Complex</span>
+                                <h3 class="property-title"><a href="#">Avenue Plaza Retail Center</a></h3>
+                                <div class="property-price">$18,700,000</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Mayfair Luxury Corridor, London</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-store" aria-hidden="true"></i> 8 Units</span>
+                                    <span class="property-meta-item"><i class="fas fa-handshake" aria-hidden="true"></i> Anchor Tenant</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 24,000 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Property 6 (Residential) -->
+                    <div class="col-lg-4 col-md-6 property-item animate-slide-up" data-category="residential" style="transition: all 0.3s ease; transition-delay: 0.2s;">
+                        <article class="property-card">
+                            <span class="property-badge">For Sale</span>
+                            <div class="property-img-wrap">
+                                <img src="images/luxury.png" alt="Premium modern wooden and stone chalet cabin structure in Aspen snow" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Mountain Chalet</span>
+                                <h3 class="property-title"><a href="#">The Whispering Pines</a></h3>
+                                <div class="property-price">$4,950,000</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Aspen Ridge, Aspen, CO</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 4 Beds</span>
+                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 5 Baths</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 4,500 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advisory Contact Banner -->
+        <section class="section-padding bg-gray border-top" aria-label="Bespoke Property Curations CTA">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 animate-slide-up">
+                        <span class="section-subtitle">Off-Market Inquiries</span>
+                        <h2 class="font-heading mb-4 text-navy" style="font-weight: 300; font-size: 2.2rem;">Looking for Bespoke Property Curations?</h2>
+                        <p class="text-muted mb-5">Many of our premium residential penthouses and strategic commercial buildings are kept off-market to maintain absolute privacy. Contact an advisor directly to gain access.</p>
+                        <a href="contact.html" class="btn btn-gold" aria-label="Connect with a corporate advisor for off-market sales">Connect with an Advisor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" aria-label="Site Footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a class="footer-logo" href="index.html" aria-label="BrixStreet Realtors Homepage">BRIX<span>STREET</span></a>
+                    <p class="mb-4 pr-lg-4" style="font-size: 0.85rem; line-height: 1.8;">BrixStreet Realtors is the global standard in luxury residential sales, premium commercial acquisitions, and private wealth investment advisory services, founded on the principle of Truth and Transparency.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Follow BrixStreet Realtors on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow BrixStreet Realtors on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow BrixStreet Realtors on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow BrixStreet Realtors on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 offset-lg-1">
+                    <h4 class="font-heading text-white">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h4 class="font-heading text-white">Properties</h4>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=luxury">Luxury Estates</a></li>
+                        <li><a href="properties.html?type=residential">Residential Villas</a></li>
+                        <li><a href="properties.html?type=commercial">Commercial Hubs</a></li>
+                        <li><a href="properties.html">Featured List</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <h4 class="font-heading text-white">Corporate Office</h4>
+                    <address class="mb-0" style="font-style: normal; font-size: 0.85rem; line-height: 1.8;">
+                        <span class="mb-3 d-flex"><i class="fas fa-map-marker-alt text-gold me-3 mt-1" aria-hidden="true"></i> 750 Fifth Avenue, Suite 4500,<br>Manhattan, NY 10019</span>
+                        <span class="mb-3 d-flex"><i class="fas fa-phone-alt text-gold me-3 mt-1" aria-hidden="true"></i> +1 (212) 555-8900</span>
+                        <span class="mb-0 d-flex"><i class="fas fa-envelope text-gold me-3 mt-1" aria-hidden="true"></i> advisors@brixstreet.com</span>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                        &copy; 2026 BrixStreet Realtors. All rights reserved. Registered Broker License #4001925B.
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-white-50 me-3" style="font-size: 0.8rem;">Privacy Policy</a>
+                        <a href="#" class="text-white-50" style="font-size: 0.8rem;">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrixStreet Realtors | Real Estate with Truth & Transparency</title>
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="BrixStreet Realtors is a premium real estate agency built on Truth and Transparency, curating exceptional luxury homes, commercial spaces, and residential properties.">
+    <meta name="keywords" content="BrixStreet, luxury homes, commercial real estate, investment advisory, realtors, premium properties, buy house">
+    <meta name="author" content="BrixStreet Realtors">
+    <link rel="canonical" href="https://www.brixstreet.com/index.html">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom Style Sheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Schema Markup JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "BrixStreet Realtors",
+      "image": "https://www.brixstreet.com/images/hero.png",
+      "@id": "https://www.brixstreet.com/#agent",
+      "url": "https://www.brixstreet.com",
+      "telephone": "+1-212-555-8900",
+      "priceRange": "$$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "750 Fifth Avenue, Suite 4500",
+        "addressLocality": "Manhattan",
+        "addressRegion": "NY",
+        "postalCode": "10019",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.76182,
+        "longitude": -73.975438
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/brixstreet",
+        "https://www.instagram.com/brixstreet",
+        "https://www.linkedin.com/company/brixstreet"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="mainNavbar" aria-label="Main Navigation">
+            <div class="container">
+                <a class="navbar-brand" href="index.html" aria-label="BrixStreet Realtors Home">BRIX<span>STREET</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation Menu">
+                    <span class="toggler-icon"></span>
+                    <span class="toggler-icon"></span>
+                    <span class="toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html" aria-current="page">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="properties.html">Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                            <a class="btn btn-outline-gold px-4 py-2" href="contact.html" style="font-size: 0.75rem; padding: 0.6rem 1.5rem;" aria-label="Contact Advisory Board">Advisory Board</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" style="background-image: url('images/hero.png');" id="homeHero" aria-label="Introduction Banner">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-10 offset-lg-1 text-center text-lg-start animate-slide-up">
+                        <span class="hero-subtitle">BrixStreet Realtors</span>
+                        <h1 class="hero-title">Real Estate with Truth & Transparency</h1>
+                        <p class="lead text-white-50 mb-5" style="max-width: 650px;">A bespoke brokerage offering elite residential real estate, prime commercial spaces, and sovereign wealth investment advisory built on uncompromising integrity.</p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                            <a href="properties.html" class="btn btn-gold" aria-label="Explore property listings">Explore Listings</a>
+                            <a href="about.html" class="btn btn-outline-gold" aria-label="Learn about our philosophy">Our Philosophy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search/Filter Panel -->
+        <section class="container" aria-label="Property Search Bar">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="search-filter-box animate-fade-in">
+                        <form id="heroSearchForm" class="row g-3 align-items-end">
+                            <div class="col-md-4">
+                                <label for="search-location">Location / Area</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 rounded-0 text-muted"><i class="fas fa-map-marker-alt text-gold" aria-hidden="true"></i></span>
+                                    <select class="form-select border-start-0 rounded-0" id="search-location" aria-label="Select property location" required>
+                                        <option value="" selected disabled>Select Location</option>
+                                        <option value="manhattan">Manhattan, NY</option>
+                                        <option value="beverly-hills">Beverly Hills, CA</option>
+                                        <option value="miami-beach">Miami Beach, FL</option>
+                                        <option value="london-mayfair">Mayfair, London</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="search-type">Property Type</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 rounded-0 text-muted"><i class="fas fa-home text-gold" aria-hidden="true"></i></span>
+                                    <select class="form-select border-start-0 rounded-0" id="search-type" aria-label="Select property type" required>
+                                        <option value="" selected disabled>Select Type</option>
+                                        <option value="residential">Residential Villa</option>
+                                        <option value="commercial">Commercial Space</option>
+                                        <option value="luxury">Luxury Penthouse</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="search-price">Price Range</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 rounded-0 text-muted"><i class="fas fa-dollar-sign text-gold" aria-hidden="true"></i></span>
+                                    <select class="form-select border-start-0 rounded-0" id="search-price" aria-label="Select budget range" required>
+                                        <option value="" selected disabled>Budget Range</option>
+                                        <option value="1m-3m">$1.0M - $3.0M</option>
+                                        <option value="3m-8m">$3.0M - $8.0M</option>
+                                        <option value="8m-plus">$8.0M +</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-gold w-100 py-3" style="font-size: 0.8rem; letter-spacing: 1px;" aria-label="Execute Search"><i class="fas fa-search me-2" aria-hidden="true"></i> Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section Teaser -->
+        <section class="section-padding" id="homeAbout" aria-label="About BrixStreet Teaser">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0 animate-slide-in-left">
+                        <div class="about-image-stack">
+                            <img src="images/about.png" alt="BrixStreet Realtors Executive Boardroom" class="image-stack-main img-fluid" loading="lazy">
+                            <img src="images/hero.png" alt="Luxury Architectural Estate Close-up" class="image-stack-sub img-fluid" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-5 animate-slide-in-right">
+                        <div class="section-title-wrap">
+                            <span class="section-subtitle">Since 2026</span>
+                            <h2 class="section-title">Redefining Real Estate Brokerage</h2>
+                        </div>
+                        <p class="lead mb-4" style="color: var(--color-primary-light);">BrixStreet Realtors combines uncompromised integrity, cutting-edge analytical tools, and honest market valuations to secure prime property opportunities for our clients.</p>
+                        <p class="text-muted mb-4">We are more than just agents. We act as long-term investment partners, helping family offices, private trusts, and institutional funds build high-yield property portfolios through strategic acquisitions and management.</p>
+                        <ul class="about-features-list">
+                            <li>Exclusive access to off-market luxury estates</li>
+                            <li>Data-driven commercial portfolio valuations</li>
+                            <li>Uncompromising discretion and client confidentiality</li>
+                        </ul>
+                        <a href="about.html" class="btn btn-gold mt-2" aria-label="Discover our executive team">Discover Our Team</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Section -->
+        <section class="stats-section" id="statsSection" aria-label="Business Metrics Counter">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="100" data-suffix="%">0</div>
+                            <div class="stat-title">Truth & Transparency Index</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="180" data-suffix="M+">$0</div>
+                            <div class="stat-title">Consulted Volume</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="450" data-suffix="+">0</div>
+                            <div class="stat-title">Luxury Properties Sold</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="98" data-suffix="%">0</div>
+                            <div class="stat-title">Client Retention Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Highlights -->
+        <section class="section-padding bg-gray" id="homeServices" aria-label="Our Divisions">
+            <div class="container">
+                <div class="section-title-wrap section-title-center">
+                    <span class="section-subtitle">Our Specializations</span>
+                    <h2 class="section-title section-title-center">A Multi-Disciplinary Real Estate Practice</h2>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 animate-slide-up">
+                        <div class="service-box">
+                            <div class="service-icon"><i class="fas fa-hotel" aria-hidden="true"></i></div>
+                            <h3 class="service-title">Residential Brokerage</h3>
+                            <p class="text-muted">A dedicated desk connecting discerning buyers with premier residential properties, modern estates, and coastal penthouses.</p>
+                            <a href="services.html#residential" class="service-link" aria-label="Read more about residential brokerage">Learn More <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 animate-slide-up" style="transition-delay: 0.1s;">
+                        <div class="service-box">
+                            <div class="service-icon"><i class="fas fa-building" aria-hidden="true"></i></div>
+                            <h3 class="service-title">Commercial Real Estate</h3>
+                            <p class="text-muted">Comprehensive commercial search, asset valuation, and tenant representation across premium corporate office hubs and business centers.</p>
+                            <a href="services.html#commercial" class="service-link" aria-label="Read more about commercial brokerages">Learn More <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 animate-slide-up" style="transition-delay: 0.2s;">
+                        <div class="service-box">
+                            <div class="service-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+                            <h3 class="service-title">Investment Advisory</h3>
+                            <p class="text-muted">Sovereign advisory, portfolio structuring, tax-optimized syndications, and high-yield real estate funds for asset protection.</p>
+                            <a href="services.html#investment" class="service-link" aria-label="Read more about wealth investment advisory">Learn More <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Properties Section -->
+        <section class="section-padding" id="homeFeatured" aria-label="Featured Properties">
+            <div class="container">
+                <div class="row align-items-end section-title-wrap">
+                    <div class="col-md-8">
+                        <span class="section-subtitle">Exquisite Portfolios</span>
+                        <h2 class="section-title">Featured BrixStreet Exclusives</h2>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="properties.html" class="btn btn-outline-gold" aria-label="View entire property portfolio">View All Properties</a>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Property 1 -->
+                    <div class="col-lg-4 col-md-6 animate-slide-up">
+                        <article class="property-card">
+                            <span class="property-badge luxury-badge">Luxury</span>
+                            <div class="property-img-wrap">
+                                <img src="images/luxury.png" alt="Interior of Aurelia Penthouse living room showing skyline" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Penthouse</span>
+                                <h3 class="property-title"><a href="properties.html">The Aurelia Penthouse</a></h3>
+                                <div class="property-price">$12,450,000</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Fifth Avenue Skyline, Manhattan, NY</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 4 Beds</span>
+                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 4.5 Baths</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 5,800 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Property 2 -->
+                    <div class="col-lg-4 col-md-6 animate-slide-up" style="transition-delay: 0.1s;">
+                        <article class="property-card">
+                            <span class="property-badge">For Sale</span>
+                            <div class="property-img-wrap">
+                                <img src="images/hero.png" alt="Exterior view of Obsidian Villa luxury estate during dusk" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Modern Villa</span>
+                                <h3 class="property-title"><a href="properties.html">The Obsidian Villa</a></h3>
+                                <div class="property-price">$8,200,000</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Beverly Crest, Beverly Hills, CA</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 5 Beds</span>
+                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 6 Baths</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 7,200 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Property 3 -->
+                    <div class="col-lg-4 col-md-6 animate-slide-up" style="transition-delay: 0.2s;">
+                        <article class="property-card">
+                            <span class="property-badge">Corporate Lease</span>
+                            <div class="property-img-wrap">
+                                <img src="images/commercial.png" alt="The Helix corporate headquarters commercial building skyscraper" loading="lazy">
+                            </div>
+                            <div class="property-content">
+                                <span class="property-type">Commercial Office</span>
+                                <h3 class="property-title"><a href="properties.html">The Helix Headquarters</a></h3>
+                                <div class="property-price">$140,000 / mo</div>
+                                <p class="text-muted" style="font-size: 0.85rem;">Canary Wharf Financial Hub, London</p>
+                                <div class="property-meta">
+                                    <span class="property-meta-item"><i class="fas fa-door-open" aria-hidden="true"></i> 12 Offices</span>
+                                    <span class="property-meta-item"><i class="fas fa-parking" aria-hidden="true"></i> 25 Slots</span>
+                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 18,500 SqFt</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section-padding testimonial-section" id="testimonials" aria-label="Endorsements">
+            <div class="container">
+                <div class="section-title-wrap section-title-center">
+                    <span class="section-subtitle">Testimonials</span>
+                    <h2 class="section-title section-title-center">Endorsements from the Elite</h2>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="testimonial-card animate-fade-in">
+                            <blockquote class="testimonial-quote">
+                                "BrixStreet Realtors handled our family office relocation with absolute discretion and precision. Their unique off-market access allowed us to secure a landmark estate in Beverly Hills without public bidding. Truly outstanding professional services."
+                            </blockquote>
+                            <div class="testimonial-client">
+                                <img src="images/about.png" alt="Portrait of Marcus Sterling, Founder of Sterling Global Trust" class="testimonial-client-img" loading="lazy">
+                                <div class="testimonial-client-info">
+                                    <cite class="testimonial-client-name" style="font-style: normal;">Marcus Sterling</cite>
+                                    <div class="testimonial-client-role">Founder, Sterling Global Trust</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Banner -->
+        <section class="section-padding bg-navy text-white text-center" style="position: relative; overflow: hidden;" aria-label="Consultation CTA">
+            <div class="container animate-slide-up">
+                <h2 class="font-heading mb-4 text-white animate-fade-in" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;">Partner with the Architectural Authorities</h2>
+                <p class="mb-5 mx-auto text-white-50" style="max-width: 600px; font-size: 0.95rem;">Unlock exceptional access to real estate investment funds, off-market opportunities, and luxury management solutions today.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="contact.html" class="btn btn-gold" aria-label="Request a private advisor consultation">Request Consultation</a>
+                    <a href="properties.html" class="btn btn-outline-gold" aria-label="Browse signature properties portfolios">Browse Portfolios</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" aria-label="Site Footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a class="footer-logo" href="index.html" aria-label="BrixStreet Realtors Homepage">BRIX<span>STREET</span></a>
+                    <p class="mb-4 pr-lg-4" style="font-size: 0.85rem; line-height: 1.8;">BrixStreet Realtors is the global standard in luxury residential sales, premium commercial acquisitions, and private wealth investment advisory services, founded on the principle of Truth and Transparency.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Follow BrixStreet Realtors on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow BrixStreet Realtors on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow BrixStreet Realtors on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Follow BrixStreet Realtors on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2 offset-lg-1">
+                    <h4 class="font-heading text-white">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h4 class="font-heading text-white">Properties</h4>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=luxury">Luxury Estates</a></li>
+                        <li><a href="properties.html?type=residential">Residential Villas</a></li>
+                        <li><a href="properties.html?type=commercial">Commercial Hubs</a></li>
+                        <li><a href="properties.html">Featured List</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <h4 class="font-heading text-white">Corporate Office</h4>
+                    <address class="mb-0" style="font-style: normal; font-size: 0.85rem; line-height: 1.8;">
+                        <span class="mb-3 d-flex"><i class="fas fa-map-marker-alt text-gold me-3 mt-1" aria-hidden="true"></i> 750 Fifth Avenue, Suite 4500,<br>Manhattan, NY 10019</span>
+                        <span class="mb-3 d-flex"><i class="fas fa-phone-alt text-gold me-3 mt-1" aria-hidden="true"></i> +1 (212) 555-8900</span>
+                        <span class="mb-0 d-flex"><i class="fas fa-envelope text-gold me-3 mt-1" aria-hidden="true"></i> advisors@brixstreet.com</span>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                        &copy; 2026 BrixStreet Realtors. All rights reserved. Registered Broker License #4001925B.
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-white-50 me-3" style="font-size: 0.8rem;">Privacy Policy</a>
+                        <a href="#" class="text-white-50" style="font-size: 0.8rem;">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Main Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>
