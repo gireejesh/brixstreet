@@ -173,10 +173,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
+            // Clean up the destination to support full URLs, tokens, or emails
+            let cleanDestination = FORMSUBMIT_DESTINATION.trim();
+            if (cleanDestination.startsWith('https://formsubmit.co/')) {
+                cleanDestination = cleanDestination.replace('https://formsubmit.co/', '');
+            }
+            if (cleanDestination.startsWith('/')) {
+                cleanDestination = cleanDestination.substring(1);
+            }
+
             // Check protocol. If running from local file explorer (file://),
             // submit normally via standard HTML form post to bypass CORS restrictions.
             if (window.location.protocol === 'file:') {
-                form.setAttribute('action', `https://formsubmit.co/${FORMSUBMIT_DESTINATION}`);
+                form.setAttribute('action', `https://formsubmit.co/${cleanDestination}`);
                 form.setAttribute('method', 'POST');
                 // Allow form to submit and page to redirect naturally
                 return;
@@ -193,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
             
             // Send AJAX request to FormSubmit using FormData
-            fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_DESTINATION}`, {
+            fetch(`https://formsubmit.co/ajax/${cleanDestination}`, {
                 method: 'POST',
                 body: new FormData(form)
             })
