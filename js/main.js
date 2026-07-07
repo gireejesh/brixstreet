@@ -174,29 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
                 
-                // Get values
-                const nameField = form.querySelector('#contact-name');
-                const emailField = form.querySelector('#contact-email');
-                const phoneField = form.querySelector('#contact-phone');
-                const deskField = form.querySelector('#contact-desk');
-                const messageField = form.querySelector('#contact-message');
-                
-                const formData = {
-                    Name: nameField ? nameField.value : 'N/A',
-                    Email: emailField ? emailField.value : 'N/A',
-                    Phone: phoneField ? phoneField.value : 'N/A',
-                    Division: deskField ? deskField.value : 'General',
-                    Message: messageField ? messageField.value : 'N/A'
-                };
-                
-                // Send AJAX request to FormSubmit
+                // Send AJAX request to FormSubmit using FormData
                 fetch('https://formsubmit.co/ajax/brixstreetrealtors@gmail.com', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
+                    body: new FormData(form)
                 })
                 .then(response => response.json())
                 .then(data => {
