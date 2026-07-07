@@ -148,6 +148,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Set dynamic redirection URL for FormSubmit if not on file:// protocol
+    const nextInput = document.getElementById('nextUrlInput');
+    if (nextInput) {
+        if (window.location.protocol !== 'file:') {
+            nextInput.value = window.location.origin + window.location.pathname + '?status=success';
+        } else {
+            // Remove _next on file:// so that FormSubmit uses its default success page
+            nextInput.remove();
+        }
+    }
+
+    // Show success message if redirected back from FormSubmit
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('status') === 'success') {
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success mt-4 rounded-0 border-0 bg-navy text-white animate-fade-in';
+            alertDiv.style.borderLeft = '4px solid #D4AF37';
+            alertDiv.innerHTML = `
+                <h5 class="font-heading text-gold mb-1">Message Received</h5>
+                <p class="mb-0 text-white" style="font-size: 0.85rem;">Thank you! Your advisory request has been sent successfully. An executive advisor will reach out within 24 hours.</p>
+            `;
+            contactForm.appendChild(alertDiv);
+            
+            // Clean up the URL parameter without page reload
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+    }
+
     // ==========================================
     // 5. Contact Form Handler (Contact Page & Home Teaser)
     // ==========================================
@@ -173,102 +205,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // Clean up the destination to support full URLs, tokens, or emails
-            let cleanDestination = FORMSUBMIT_DESTINATION.trim();
-            if (cleanDestination.startsWith('https://formsubmit.co/')) {
-                cleanDestination = cleanDestination.replace('https://formsubmit.co/', '');
-            }
-            if (cleanDestination.startsWith('/')) {
-                cleanDestination = cleanDestination.substring(1);
-            }
-
-            // Check protocol. If running from local file explorer (file://),
-            // submit normally via standard HTML form post to bypass CORS restrictions.
-            if (window.location.protocol === 'file:') {
-                form.setAttribute('action', `https://formsubmit.co/${cleanDestination}`);
-                form.setAttribute('method', 'POST');
-                // Allow form to submit and page to redirect naturally
-                return;
-            }
-            
-            // If running on a web server (http:// or https://), use premium AJAX submission
-            e.preventDefault();
-            
-            // Show dynamic loading state
+            // Show loading state on the button while browser redirects
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+            }
             
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
-            
-            // Send AJAX request to FormSubmit using FormData
-            fetch(`https://formsubmit.co/ajax/${cleanDestination}`, {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    return response.json().then(err => {
-                        throw new Error(err.message || `HTTP error! Status: ${response.status}`);
-                    }).catch(() => {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success === "true" || data.success === true) {
-                    submitBtn.innerHTML = '<i class="fas fa-check me-2"></i> Sent Successfully';
-                    submitBtn.style.backgroundColor = '#28a745';
-                    submitBtn.style.color = '#FFFFFF';
-                    submitBtn.style.borderColor = '#28a745';
-                    
-                    // Create success message element
-                    const alertDiv = document.createElement('div');
-                    alertDiv.className = 'alert alert-success mt-4 rounded-0 border-0 bg-navy text-white animate-fade-in';
-                    alertDiv.style.borderLeft = '4px solid #D4AF37';
-                    alertDiv.innerHTML = `
-                        <h5 class="font-heading text-gold mb-1">Message Received</h5>
-                        <p class="mb-0 text-white" style="font-size: 0.85rem;">${data.message || 'Thank you! Your advisory request has been sent. An executive advisor will reach out within 24 hours.'}</p>
-                    `;
-                    form.appendChild(alertDiv);
-                    form.reset();
-                    
-                    // Reset button after 6 seconds
-                    setTimeout(() => {
-                        alertDiv.remove();
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.className = 'btn btn-gold w-100';
-                        submitBtn.style = '';
-                    }, 6000);
-                } else {
-                    throw new Error(data.message || 'FormSubmit error');
-                }
-            })
-            .catch(error => {
-                console.error('Error submitting form:', error);
-                submitBtn.innerHTML = '<i class="fas fa-times me-2"></i> Failed to Send';
-                submitBtn.style.backgroundColor = '#dc3545';
-                submitBtn.style.color = '#FFFFFF';
-                submitBtn.style.borderColor = '#dc3545';
-                
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'alert alert-danger mt-4 rounded-0 border-0 bg-danger text-white animate-fade-in';
-                errorDiv.innerHTML = `
-                    <p class="mb-1 fw-bold" style="font-size: 0.85rem;">Submission failed:</p>
-                    <p class="mb-0 text-white-50" style="font-size: 0.8rem;">${error.message || 'Please check your connection and try again, or email us at brixstreetrealtors@gmail.com.'}</p>
-                `;
-                form.appendChild(errorDiv);
-                
-                setTimeout(() => {
-                    errorDiv.remove();
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.className = 'btn btn-gold w-100';
-                    submitBtn.style = '';
-                }, 8000);
-            });
+            // Allow form to submit and page to redirect naturally
         });
     });
 
