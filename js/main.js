@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const startCounting = () => {
             statNumbers.forEach(stat => {
                 const target = parseInt(stat.getAttribute('data-target'), 10);
+                const prefix = stat.getAttribute('data-prefix') || '';
                 const suffix = stat.getAttribute('data-suffix') || '';
                 let count = 0;
                 const duration = 2000; // 2 seconds
@@ -80,9 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const updateCount = () => {
                     count += increment;
                     if (count >= target) {
-                        stat.innerText = target + suffix;
+                        stat.innerText = prefix + target + suffix;
                     } else {
-                        stat.innerText = count + suffix;
+                        stat.innerText = prefix + count + suffix;
                         requestAnimationFrame(updateCount);
                     }
                 };
