@@ -30,16 +30,16 @@
       "priceRange": "$$$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Level 18, Maker Chambers VI, Nariman Point",
-        "addressLocality": "Mumbai",
-        "addressRegion": "Maharashtra",
-        "postalCode": "400021",
+        "streetAddress": "Plot No. GH-03/A, Sector 143, Noida",
+        "addressLocality": "Gautambudh Nagar",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201305",
         "addressCountry": "IN"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 18.9279,
-        "longitude": 72.8211
+        "latitude": 28.4986,
+        "longitude": 77.4231
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
@@ -280,67 +280,9 @@
                     </div>
                 </div>
                 
-                <div class="row g-4">
-                    <!-- Property 1 -->
-                    <div class="col-lg-4 col-md-6 animate-slide-up">
-                        <article class="property-card">
-                            <span class="property-badge luxury-badge">Luxury</span>
-                            <div class="property-img-wrap">
-                                <img src="images/luxury.png" alt="Interior of Aurelia Penthouse living room showing skyline view" loading="lazy">
-                            </div>
-                            <div class="property-content">
-                                <span class="property-type">Penthouse</span>
-                                <h3 class="property-title"><a href="properties.html">The Aurelia Penthouse</a></h3>
-                                <div class="property-price">₹12.45 Crore</div>
-                                <p class="text-muted" style="font-size: 0.85rem;">Dholera Smart City, Gujarat</p>
-                                <div class="property-meta">
-                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 4 Beds</span>
-                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 4.5 Baths</span>
-                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 5,800 SqFt</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Property 2 -->
-                    <div class="col-lg-4 col-md-6 animate-slide-up" style="transition-delay: 0.1s;">
-                        <article class="property-card">
-                            <span class="property-badge">For Sale</span>
-                            <div class="property-img-wrap">
-                                <img src="images/hero.png" alt="Exterior view of Obsidian Villa luxury estate during sunset" loading="lazy">
-                            </div>
-                            <div class="property-content">
-                                <span class="property-type">Modern Villa</span>
-                                <h3 class="property-title"><a href="properties.html">The Obsidian Villa</a></h3>
-                                <div class="property-price">₹8.20 Crore</div>
-                                <p class="text-muted" style="font-size: 0.85rem;">Gulshan Empire, Wave City, NH-24</p>
-                                <div class="property-meta">
-                                    <span class="property-meta-item"><i class="fas fa-bed" aria-hidden="true"></i> 5 Beds</span>
-                                    <span class="property-meta-item"><i class="fas fa-bath" aria-hidden="true"></i> 6 Baths</span>
-                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 7,200 SqFt</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- Property 3 -->
-                    <div class="col-lg-4 col-md-6 animate-slide-up" style="transition-delay: 0.2s;">
-                        <article class="property-card">
-                            <span class="property-badge">Corporate Lease</span>
-                            <div class="property-img-wrap">
-                                <img src="images/commercial.png" alt="The Helix corporate headquarters commercial building skyscraper" loading="lazy">
-                            </div>
-                            <div class="property-content">
-                                <span class="property-type">Commercial Office</span>
-                                <h3 class="property-title"><a href="properties.html">The Helix Headquarters</a></h3>
-                                <div class="property-price">₹12 Lakh / mo</div>
-                                <p class="text-muted" style="font-size: 0.85rem;">DLF CyberCity, Gurugram, NCR</p>
-                                <div class="property-meta">
-                                    <span class="property-meta-item"><i class="fas fa-door-open" aria-hidden="true"></i> 12 Offices</span>
-                                    <span class="property-meta-item"><i class="fas fa-parking" aria-hidden="true"></i> 25 Slots</span>
-                                    <span class="property-meta-item"><i class="fas fa-vector-square" aria-hidden="true"></i> 18,500 SqFt</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
+                <!-- Dynamic grid populated by properties-renderer.js -->
+                <div class="row g-4" id="featuredPropertiesGrid">
+                    <!-- Cards will render here dynamically, sorted by clicks -->
                 </div>
             </div>
         </section>
@@ -421,9 +363,9 @@
                 <div class="col-md-4 col-lg-3">
                     <h4 class="font-heading text-white">Corporate Office</h4>
                     <address class="mb-0" style="font-style: normal; font-size: 0.85rem; line-height: 1.8;">
-                        <span class="mb-3 d-flex"><i class="fas fa-map-marker-alt text-gold me-3 mt-1" aria-hidden="true"></i> Level 18, Maker Chambers VI,<br>Nariman Point, Mumbai 400021</span>
+                        <span class="mb-3 d-flex"><i class="fas fa-map-marker-alt text-gold me-3 mt-1" aria-hidden="true"></i> Plot No. GH-03/A, Sector 143, Noida,<br>Gautambudh Nagar, 201305 - Uttar Pradesh</span>
                         <span class="mb-3 d-flex"><i class="fas fa-phone-alt text-gold me-3 mt-1" aria-hidden="true"></i> +91 (22) 555-8900</span>
-                        <span class="mb-0 d-flex"><i class="fas fa-envelope text-gold me-3 mt-1" aria-hidden="true"></i> advisors@brixstreet.com</span>
+                        <span class="mb-0 d-flex"><i class="fas fa-envelope text-gold me-3 mt-1" aria-hidden="true"></i> brixstreetrealtors@gmail.com</span>
                     </address>
                 </div>
             </div>
@@ -431,7 +373,7 @@
             <div class="footer-bottom text-center">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-md-start mb-3 mb-md-0">
-                        &copy; 2026 BrixStreet Realtors. All rights reserved. Registered Broker License #4001925B.
+                        &copy; 2026 BrixStreet Realtors. All rights reserved.
                     </div>
                     <div class="col-md-6 text-md-end">
                         <a href="#" class="text-white-50 me-3" style="font-size: 0.8rem;">Privacy Policy</a>
@@ -444,6 +386,10 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Properties Database -->
+    <script src="js/properties-data.js"></script>
+    <!-- Properties Renderer -->
+    <script src="js/properties-renderer.js"></script>
     <!-- Custom Main Script -->
     <script src="js/main.js"></script>
 </body>

@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '.animate-fade-in, .animate-slide-up, .animate-slide-in-left, .animate-slide-in-right'
     );
     
-    const animationObserver = new IntersectionObserver((entries, observer) => {
+    window.animationObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
