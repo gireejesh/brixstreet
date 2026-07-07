@@ -205,10 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // Show loading state on the button while browser redirects
+            // Show loading visual state without setting disabled=true (disabling button cancels submit on mobile browsers)
             const submitBtn = form.querySelector('button[type="submit"]');
             if (submitBtn) {
-                submitBtn.disabled = true;
+                submitBtn.style.pointerEvents = 'none';
+                submitBtn.style.opacity = '0.7';
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
             }
             
