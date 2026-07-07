@@ -167,43 +167,90 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             if (isValid) {
-                // Show floating luxury overlay/alert for success
+                // Show dynamic loading state
                 const submitBtn = form.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
                 
-                // Simulate server request
-                setTimeout(() => {
-                    submitBtn.innerHTML = '<i class="fas fa-check me-2"></i> Sent Successfully';
-                    submitBtn.classList.remove('btn-gold');
-                    submitBtn.style.backgroundColor = '#28a745';
+                // Get values
+                const nameField = form.querySelector('#contact-name');
+                const emailField = form.querySelector('#contact-email');
+                const phoneField = form.querySelector('#contact-phone');
+                const deskField = form.querySelector('#contact-desk');
+                const messageField = form.querySelector('#contact-message');
+                
+                const formData = {
+                    Name: nameField ? nameField.value : 'N/A',
+                    Email: emailField ? emailField.value : 'N/A',
+                    Phone: phoneField ? phoneField.value : 'N/A',
+                    Division: deskField ? deskField.value : 'General',
+                    Message: messageField ? messageField.value : 'N/A'
+                };
+                
+                // Send AJAX request to FormSubmit
+                fetch('https://formsubmit.co/ajax/brixstreetrealtors@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success === "true" || data.success === true) {
+                        submitBtn.innerHTML = '<i class="fas fa-check me-2"></i> Sent Successfully';
+                        submitBtn.style.backgroundColor = '#28a745';
+                        submitBtn.style.color = '#FFFFFF';
+                        submitBtn.style.borderColor = '#28a745';
+                        
+                        // Create success message element
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert alert-success mt-4 rounded-0 border-0 bg-navy text-white animate-fade-in';
+                        alertDiv.style.borderLeft = '4px solid #D4AF37';
+                        alertDiv.innerHTML = `
+                            <h5 class="font-heading text-gold mb-1">Message Received</h5>
+                            <p class="mb-0 text-white" style="font-size: 0.85rem;">Thank you! Your advisory request has been sent. An executive advisor will reach out within 24 hours.</p>
+                        `;
+                        form.appendChild(alertDiv);
+                        form.reset();
+                        
+                        // Reset button after 6 seconds
+                        setTimeout(() => {
+                            alertDiv.remove();
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.className = 'btn btn-gold w-100';
+                            submitBtn.style = '';
+                        }, 6000);
+                    } else {
+                        throw new Error('FormSubmit error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting form:', error);
+                    submitBtn.innerHTML = '<i class="fas fa-times me-2"></i> Failed to Send';
+                    submitBtn.style.backgroundColor = '#dc3545';
                     submitBtn.style.color = '#FFFFFF';
-                    submitBtn.style.borderColor = '#28a745';
+                    submitBtn.style.borderColor = '#dc3545';
                     
-                    // Create success message element
-                    const alertDiv = document.createElement('div');
-                    alertDiv.className = 'alert alert-success mt-4 rounded-0 border-0 bg-navy text-white animate-fade-in';
-                    alertDiv.style.borderLeft = '4px solid #D4AF37';
-                    alertDiv.innerHTML = `
-                        <h5 class="font-heading text-gold mb-1">Message Received</h5>
-                        <p class="mb-0 text-white" style="font-size: 0.85rem;">Thank you for contacting BrixStreet Realtors. An executive advisor will reach out to you within 24 hours.</p>
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'alert alert-danger mt-4 rounded-0 border-0 bg-danger text-white animate-fade-in';
+                    errorDiv.innerHTML = `
+                        <p class="mb-0" style="font-size: 0.85rem;">Submission failed. Please check your network and try again, or email us at brixstreetrealtors@gmail.com.</p>
                     `;
-                    form.appendChild(alertDiv);
+                    form.appendChild(errorDiv);
                     
-                    form.reset();
-                    
-                    // Reset button after 5 seconds
                     setTimeout(() => {
-                        alertDiv.remove();
+                        errorDiv.remove();
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalText;
                         submitBtn.className = 'btn btn-gold w-100';
                         submitBtn.style = '';
                     }, 6000);
-                    
-                }, 1800);
+                });
             }
         });
     });
