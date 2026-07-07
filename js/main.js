@@ -7,6 +7,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================
+    // CONFIGURATION: FormSubmit Destination Token or Email
+    // Paste your FormSubmit Random Token here to bypass CORS/domain activation issues.
+    // ==========================================
+    const FORMSUBMIT_DESTINATION = 'https://formsubmit.co/el/cituho';
     // 1. Sticky Navigation Scroll Effect
     // ==========================================
     const navbar = document.querySelector('.navbar-custom');
@@ -172,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Check protocol. If running from local file explorer (file://),
             // submit normally via standard HTML form post to bypass CORS restrictions.
             if (window.location.protocol === 'file:') {
-                form.setAttribute('action', 'https://formsubmit.co/brixstreetrealtors@gmail.com');
+                form.setAttribute('action', `https://formsubmit.co/${FORMSUBMIT_DESTINATION}`);
                 form.setAttribute('method', 'POST');
                 // Allow form to submit and page to redirect naturally
                 return;
@@ -189,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
             
             // Send AJAX request to FormSubmit using FormData
-            fetch('https://formsubmit.co/ajax/brixstreetrealtors@gmail.com', {
+            fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_DESTINATION}`, {
                 method: 'POST',
                 body: new FormData(form)
             })
