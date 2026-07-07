@@ -1075,3 +1075,52 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
         padding: 2.8rem;
     }
 }
+
+/* ==========================================
+ * News Feed Styling
+ * ========================================== */
+.news-card {
+    background-color: #FFFFFF;
+    transition: var(--transition-smooth);
+}
+
+.news-card:hover {
+    box-shadow: var(--shadow-medium) !important;
+    transform: translateY(-4px);
+}
+
+.news-category-badge {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.4rem 0.9rem;
+    display: inline-block;
+}
+
+.news-sentiment-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.4rem 0.9rem;
+    display: inline-block;
+}
+
+.sentiment-bullish {
+    background-color: #E2F0D9;
+    color: #385723;
+}
+
+.sentiment-positive {
+    background-color: #E6F4EA;
+    color: #137333;
+}
+
+.sentiment-yield {
+    background-color: #E8F0FE;
+    color: #1A73E8;
+}
+
