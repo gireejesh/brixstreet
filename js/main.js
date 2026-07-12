@@ -7,10 +7,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================
-    // CONFIGURATION: FormSubmit Destination Token or Email
-    // Paste your FormSubmit Random Token here to bypass CORS/domain activation issues.
     // ==========================================
-    const FORMSUBMIT_DESTINATION = 'https://formsubmit.co/el/cituho';
+    // CONFIGURATION: Web3Forms Access Key
+    // Get a free key instantly at https://web3forms.com (no signup/domain activation required).
+    // Paste your key below to enable instant, verification-free submissions!
+    // ==========================================
+    const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
     // 1. Sticky Navigation Scroll Effect
     // ==========================================
     const navbar = document.querySelector('.navbar-custom');
@@ -148,38 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Set dynamic redirection URL for FormSubmit if not on file:// protocol
-    const nextInput = document.getElementById('nextUrlInput');
-    if (nextInput) {
-        if (window.location.protocol !== 'file:') {
-            nextInput.value = window.location.origin + window.location.pathname + '?status=success';
-        } else {
-            // Remove _next on file:// so that FormSubmit uses its default success page
-            nextInput.remove();
-        }
-    }
-
-    // Show success message if redirected back from FormSubmit
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('status') === 'success') {
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            const alertDiv = document.createElement('div');
-            alertDiv.className = 'alert alert-success mt-4 rounded-0 border-0 bg-navy text-white animate-fade-in';
-            alertDiv.style.borderLeft = '4px solid #D4AF37';
-            alertDiv.innerHTML = `
-                <h5 class="font-heading text-gold mb-1">Message Received</h5>
-                <p class="mb-0 text-white" style="font-size: 0.85rem;">Thank you! Your advisory request has been sent successfully. An executive advisor will reach out within 24 hours.</p>
-            `;
-            contactForm.appendChild(alertDiv);
-            
-            // Clean up the URL parameter without page reload
-            if (window.history && window.history.replaceState) {
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-        }
-    }
-
     // ==========================================
     // 5. Contact Form Handler (Contact Page & Home Teaser)
     // ==========================================
@@ -187,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     contactForms.forEach(form => {
         form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
             // Basic validation
             let isValid = true;
             const requiredFields = form.querySelectorAll('[required]');
@@ -201,19 +173,108 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             if (!isValid) {
-                e.preventDefault();
                 return;
             }
             
             // Show loading visual state without setting disabled=true (disabling button cancels submit on mobile browsers)
             const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Advisory Request';
             if (submitBtn) {
                 submitBtn.style.pointerEvents = 'none';
                 submitBtn.style.opacity = '0.7';
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
             }
             
-            // Allow form to submit and page to redirect naturally
+            // Create FormData object
+            const formData = new FormData(form);
+            
+            // Append Web3Forms access key
+            if (WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== 'YOUR_ACCESS_KEY_HERE') {
+                formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+            } else {
+                console.warn('Web3Forms Access Key is not configured. Please get a free key at https://web3forms.com');
+                // Use a default sandbox key for testing so it doesn't fail completely!
+                formData.append('access_key', '00000000-0000-0000-0000-000000000000'); 
+            }
+            
+            // Send AJAX request to Web3Forms using FormData
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => {
+                        throw new Error(err.message || `HTTP error! Status: ${response.status}`);
+                    }).catch(() => {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success === "true" || data.success === true) {
+                    if (submitBtn) {
+                        submitBtn.innerHTML = '<i class="fas fa-check me-2"></i> Sent Successfully';
+                        submitBtn.style.backgroundColor = '#28a745';
+                        submitBtn.style.color = '#FFFFFF';
+                        submitBtn.style.borderColor = '#28a745';
+                    }
+                    
+                    // Create success message element
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-success mt-4 rounded-0 border-0 bg-navy text-white animate-fade-in';
+                    alertDiv.style.borderLeft = '4px solid #D4AF37';
+                    alertDiv.innerHTML = `
+                        <h5 class="font-heading text-gold mb-1">Message Received</h5>
+                        <p class="mb-0 text-white" style="font-size: 0.85rem;">${data.message || 'Thank you! Your advisory request has been sent. An executive advisor will reach out within 24 hours.'}</p>
+                    `;
+                    form.appendChild(alertDiv);
+                    form.reset();
+                    
+                    // Reset button after 6 seconds
+                    setTimeout(() => {
+                        alertDiv.remove();
+                        if (submitBtn) {
+                            submitBtn.style.pointerEvents = 'auto';
+                            submitBtn.style.opacity = '1';
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.className = 'btn btn-gold w-100';
+                            submitBtn.style = '';
+                        }
+                    }, 6000);
+                } else {
+                    throw new Error(data.message || 'Web3Forms error');
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                if (submitBtn) {
+                    submitBtn.innerHTML = '<i class="fas fa-times me-2"></i> Failed to Send';
+                    submitBtn.style.backgroundColor = '#dc3545';
+                    submitBtn.style.color = '#FFFFFF';
+                    submitBtn.style.borderColor = '#dc3545';
+                }
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'alert alert-danger mt-4 rounded-0 border-0 bg-danger text-white animate-fade-in';
+                errorDiv.innerHTML = `
+                    <p class="mb-1 fw-bold" style="font-size: 0.85rem;">Submission failed:</p>
+                    <p class="mb-0 text-white-50" style="font-size: 0.8rem;">${error.message || 'Please check your connection and try again, or email us at brixstreetrealtors@gmail.com.'}</p>
+                `;
+                form.appendChild(errorDiv);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                    if (submitBtn) {
+                        submitBtn.style.pointerEvents = 'auto';
+                        submitBtn.style.opacity = '1';
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.className = 'btn btn-gold w-100';
+                        submitBtn.style = '';
+                    }
+                }, 8000);
+            });
         });
     });
 
