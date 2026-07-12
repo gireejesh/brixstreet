@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get a free key instantly at https://web3forms.com (no signup/domain activation required).
     // Paste your key below to enable instant, verification-free submissions!
     // ==========================================
-    const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+    const WEB3FORMS_ACCESS_KEY = 'e9a643bf-a07e-47aa-8ff0-e138e779bdc7';
     // 1. Sticky Navigation Scroll Effect
     // ==========================================
     const navbar = document.querySelector('.navbar-custom');
@@ -157,8 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     contactForms.forEach(form => {
         form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
             // Basic validation
             let isValid = true;
             const requiredFields = form.querySelectorAll('[required]');
@@ -173,10 +171,47 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             if (!isValid) {
+                e.preventDefault();
                 return;
             }
             
-            // Show loading visual state without setting disabled=true (disabling button cancels submit on mobile browsers)
+            // Get key value
+            let activeKey = WEB3FORMS_ACCESS_KEY.trim();
+            if (!activeKey || activeKey === 'YOUR_ACCESS_KEY_HERE') {
+                console.warn('Web3Forms Access Key is not configured. Using sandbox key.');
+                activeKey = '00000000-0000-0000-0000-000000000000';
+            }
+            
+            // Check protocol. If running from local file explorer (file://),
+            // submit normally via standard HTML form post to bypass CORS restrictions.
+            if (window.location.protocol === 'file:') {
+                form.setAttribute('action', 'https://api.web3forms.com/submit');
+                form.setAttribute('method', 'POST');
+                
+                // Add access_key hidden field if not already present
+                let keyInput = form.querySelector('input[name="access_key"]');
+                if (!keyInput) {
+                    keyInput = document.createElement('input');
+                    keyInput.type = 'hidden';
+                    keyInput.name = 'access_key';
+                    form.appendChild(keyInput);
+                }
+                keyInput.value = activeKey;
+                
+                // Remove redirect field on file:// to let Web3Forms handle success redirection natively
+                let redirectInput = form.querySelector('input[name="redirect"]');
+                if (redirectInput) {
+                    redirectInput.remove();
+                }
+                
+                // Allow form to submit and page to redirect naturally
+                return;
+            }
+            
+            // If running on a web server, use premium AJAX submission
+            e.preventDefault();
+            
+            // Show loading visual state
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Advisory Request';
             if (submitBtn) {
@@ -187,15 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Create FormData object
             const formData = new FormData(form);
-            
-            // Append Web3Forms access key
-            if (WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== 'YOUR_ACCESS_KEY_HERE') {
-                formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-            } else {
-                console.warn('Web3Forms Access Key is not configured. Please get a free key at https://web3forms.com');
-                // Use a default sandbox key for testing so it doesn't fail completely!
-                formData.append('access_key', '00000000-0000-0000-0000-000000000000'); 
-            }
+            formData.append('access_key', activeKey);
             
             // Send AJAX request to Web3Forms using FormData
             fetch('https://api.web3forms.com/submit', {
