@@ -7,8 +7,8 @@ const PROPERTIES_DATA = [
   {
     id: "m3m-jacob",
     title: "M3M Jacob & Co.",
-    type: "Ultra Luxury Appartments",
-    category: "luxury",
+    type: "Ultra Luxury Apartments",
+    category: "residential",
     badge: "Exclusive",
     price: "₹3 - ₹9 Crore",
     location: "M3M Jacob & Co., Sector 97, Noida",
@@ -24,7 +24,7 @@ const PROPERTIES_DATA = [
   {
     id: "the-empire",
     title: "The Empire",
-    type: "Super Luxury Appartments",
+    type: "Super Luxury Apartments",
     category: "residential",
     badge: "EOI Initiated",
     price: "₹1.98 - 2.62 Crore",
@@ -47,10 +47,27 @@ const PROPERTIES_DATA = [
     price: "₹12 Lakh",
     location: "Estates 4,5,6,7 and 8, DSIR Dholera Smart City",
     image: "images/commercial.png",
-    imageAlt: "Helix commercial business tower glass skyscraper in Gurugram DLF Cybercity",
+    imageAlt: "Helix commercial business tower glass skyscraper in Dholera DSIR",
     meta: [
       { icon: "fa-vector-square", text: "100 - 250 sq yd" }
     ],
     defaultClicks: 100
+  },
+  {
+    id: "riverfront-farmland",
+    title: "The Riverfront Retreat",
+    type: "Exquisite Farmlands",
+    category: "farmland",
+    badge: "New Launch",
+    price: "₹4.50 Crore",
+    location: "Yamuna Expressway River Corridor, Greater Noida",
+    image: "images/farmland_riverside.png",
+    imageAlt: "Lush green riverside farmland landscape with manicured orchards and mountain views",
+    meta: [
+      { icon: "fa-vector-square", text: "2.5 Acres" },
+      { icon: "fa-water", text: "150m River Frontage" },
+      { icon: "fa-tree", text: "Organic Orchards" }
+    ],
+    defaultClicks: 140
   }
 ];

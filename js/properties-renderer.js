@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cardCol.innerHTML = `
                 <article class="property-card">
-                    <span class="property-badge ${p.category === 'luxury' ? 'luxury-badge' : ''}">${p.badge}</span>
+                    <span class="property-badge ${p.badge === 'Exclusive' ? 'luxury-badge' : (p.category === 'farmland' ? 'farmland-badge' : '')}">${p.badge}</span>
                     <div class="property-img-wrap">
                         <img src="${p.image}" alt="${p.imageAlt}" loading="lazy">
                     </div>
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cardCol.innerHTML = `
                 <article class="property-card">
-                    <span class="property-badge ${p.category === 'luxury' ? 'luxury-badge' : ''}">${p.badge}</span>
+                    <span class="property-badge ${p.badge === 'Exclusive' ? 'luxury-badge' : (p.category === 'farmland' ? 'farmland-badge' : '')}">${p.badge}</span>
                     <div class="property-img-wrap">
                         <img src="${p.image}" alt="${p.imageAlt}" loading="lazy">
                     </div>
