@@ -219,6 +219,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Allow Enter key to validate and submit the form from any input field
+    contactForms.forEach(form => {
+        const inputs = form.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.click(); // Triggers form submit event and validation
+                    }
+                }
+            });
+        });
+    });
+
     // ==========================================
     // 6. Home Search Bar Handler
     // ==========================================
