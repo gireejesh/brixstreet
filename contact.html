@@ -169,7 +169,10 @@
                             <h3 class="font-heading mb-4 text-navy">Share Your Requirements</h3>
                             <p class="text-muted mb-4">Please fill in the details below. Our advisors will get back to you within 24 hours.</p>
                             
-                             <form class="contact-form" aria-label="Advisory Request Form">
+                             <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" aria-label="Advisory Request Form">
+                                <!-- Web3Forms Configurations -->
+                                <input type="hidden" name="access_key" value="e9a643bf-a07e-47aa-8ff0-e138e779bdc7">
+                                <input type="hidden" name="redirect" id="nextUrlInput">
                                 
                                 <div class="row g-3">
                                     <div class="col-md-6">
