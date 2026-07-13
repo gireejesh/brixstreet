@@ -41,16 +41,16 @@ const PROPERTIES_DATA = [
     defaultClicks: 120
   },
   {
-    id: "freehold-plot",
-    title: "The Golden Crest Estate",
+    id: "Freedom-to-build-plots",
+    title: "Gaur Waterfront Plots",
     type: "Residential Plots",
     category: "residential",
     subtype: "plots",
-    badge: "Freehold",
-    price: "₹1.50 Crore",
-    location: "Sector 144 Luxury Block, Noida",
-    image: "images/freehold_plot.png",
-    imageAlt: "A premium gated community residential freehold land plot ready for construction",
+    badge: "Premium",
+    price: "₹1.01 - 2.50 Crore",
+    location: "Gaur Yamuna City, Sector 19, Yamuna Expressway, Greater Noida",
+    image: "images/GaurWaterfront.jpg",
+    imageAlt: "A premium gated community with residential plots ready for construction",
     meta: [
       { icon: "fa-vector-square", text: "250 - 500 Sq Yds" },
       { icon: "fa-shield-halved", text: "Gated Community" },
