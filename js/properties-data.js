@@ -41,7 +41,7 @@ const PROPERTIES_DATA = [
     defaultClicks: 120
   },
   {
-    id: "Freedom-to-build-plots",
+    id: "Free-to-build-plots",
     title: "Gaur Waterfront Plots",
     type: "Residential Plots",
     category: "residential",
@@ -49,7 +49,7 @@ const PROPERTIES_DATA = [
     badge: "Premium",
     price: "₹1.01 - 2.50 Crore",
     location: "Gaur Yamuna City, Sector 19, Yamuna Expressway, Greater Noida",
-    image: "images/GaurWaterfront.jpg",
+    image: "images/GaurWaterfront-3d-site-plan-big.jpg",
     imageAlt: "A premium gated community with residential plots ready for construction",
     meta: [
       { icon: "fa-vector-square", text: "250 - 500 Sq Yds" },
