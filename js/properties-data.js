@@ -45,7 +45,7 @@ const PROPERTIES_DATA = [
     category: "commercial",
     badge: "Industrial",
     price: "₹12 Lakh",
-    location: "Estates 4,5,6,7 and 8, DSIR Dholera Smart City",
+    location: "SIR Dholera, Smart City",
     image: "images/commercial.png",
     imageAlt: "Helix commercial business tower glass skyscraper in Dholera DSIR",
     meta: [
