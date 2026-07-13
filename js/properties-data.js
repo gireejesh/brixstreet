@@ -9,6 +9,7 @@ const PROPERTIES_DATA = [
     title: "M3M Jacob & Co.",
     type: "Ultra Luxury Apartments",
     category: "residential",
+    subtype: "apartments",
     badge: "Exclusive",
     price: "₹3 - ₹9 Crore",
     location: "M3M Jacob & Co., Sector 97, Noida",
@@ -26,6 +27,7 @@ const PROPERTIES_DATA = [
     title: "The Empire",
     type: "Super Luxury Apartments",
     category: "residential",
+    subtype: "apartments",
     badge: "EOI Initiated",
     price: "₹1.98 - 2.62 Crore",
     location: "Gulshan Empire, Wave City, NH-24",
@@ -39,13 +41,31 @@ const PROPERTIES_DATA = [
     defaultClicks: 120
   },
   {
+    id: "freehold-plot",
+    title: "The Golden Crest Estate",
+    type: "Residential Plots",
+    category: "residential",
+    subtype: "plots",
+    badge: "Freehold",
+    price: "₹1.50 Crore",
+    location: "Sector 144 Luxury Block, Noida",
+    image: "images/freehold_plot.png",
+    imageAlt: "A premium gated community residential freehold land plot ready for construction",
+    meta: [
+      { icon: "fa-vector-square", text: "250 - 500 Sq Yds" },
+      { icon: "fa-shield-halved", text: "Gated Community" },
+      { icon: "fa-file-invoice", text: "Registry Ready" }
+    ],
+    defaultClicks: 110
+  },
+  {
     id: "eleque-infra",
     title: "Eleque Infra, Dholera",
     type: "Commercial / Industrial Land",
     category: "commercial",
     badge: "Industrial",
     price: "₹12 Lakh",
-    location: "SIR Dholera, Smart City",
+    location: "Estates 4,5,6,7 and 8, DSIR Dholera Smart City",
     image: "images/commercial.png",
     imageAlt: "Helix commercial business tower glass skyscraper in Dholera DSIR",
     meta: [

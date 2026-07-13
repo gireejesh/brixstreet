@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardCol = document.createElement('div');
             cardCol.className = 'col-lg-4 col-md-6 property-item animate-slide-up';
             cardCol.setAttribute('data-category', p.category);
+            cardCol.setAttribute('data-subtype', p.subtype || '');
             cardCol.style.transition = 'all 0.3s ease';
             
             const metaHTML = p.meta.map(m => `

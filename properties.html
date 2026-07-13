@@ -127,9 +127,16 @@
                     <div class="col-12 text-center animate-fade-in">
                         <div class="filter-tabs" role="tablist" aria-label="Filter Properties by Type">
                             <button class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true" aria-label="View all properties">All Portfolios</button>
-                            <button class="filter-tab-btn" data-filter="residential" role="tab" aria-selected="false" aria-label="Filter by residential properties">Premium Residences</button>
+                            <button class="filter-tab-btn" data-filter="residential" role="tab" aria-selected="false" aria-label="Filter by residential properties">Residential</button>
                             <button class="filter-tab-btn" data-filter="commercial" role="tab" aria-selected="false" aria-label="Filter by commercial complexes">Commercial Hubs</button>
                             <button class="filter-tab-btn" data-filter="farmland" role="tab" aria-selected="false" aria-label="Filter by exquisite farmlands">Exquisite Farmlands</button>
+                        </div>
+                        
+                        <!-- Residential Sub-filters -->
+                        <div class="residential-sub-filters d-none mt-4 animate-fade-in text-center" id="residentialSubFilters" role="tablist" aria-label="Filter Residential by Subtype">
+                            <button class="sub-filter-btn active" data-subfilter="all" role="tab" aria-selected="true">All Residential</button>
+                            <button class="sub-filter-btn" data-subfilter="apartments" role="tab" aria-selected="false">Apartments</button>
+                            <button class="sub-filter-btn" data-subfilter="plots" role="tab" aria-selected="false">Plots</button>
                         </div>
                     </div>
                 </div>
@@ -184,10 +191,10 @@
                 <div class="col-md-4 col-lg-2">
                     <h4 class="font-heading text-white">Properties</h4>
                     <ul class="footer-links">
-                        <li><a href="properties.html?type=residential">Premium Residences</a></li>
+                        <li><a href="properties.html?type=residential-apartments">Apartments</a></li>
+                        <li><a href="properties.html?type=residential-plots">Plots</a></li>
                         <li><a href="properties.html?type=commercial">Commercial Hubs</a></li>
                         <li><a href="properties.html?type=farmland">Exquisite Farmlands</a></li>
-                        <li><a href="properties.html">Featured List</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-lg-3">

@@ -769,6 +769,30 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     border-bottom-color: var(--color-gold);
 }
 
+/* --- Sub-Filters --- */
+.sub-filter-btn {
+    border: 1px solid #E5E9F0;
+    background: transparent;
+    padding: 0.4rem 1.2rem;
+    margin: 0.3rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-primary-light);
+    border-radius: 20px;
+    transition: var(--transition-smooth);
+}
+
+.sub-filter-btn:hover,
+.sub-filter-btn.active {
+    color: #FFFFFF;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+
 /* --- Testimonials --- */
 .testimonial-section {
     background-color: var(--color-bg-gray);

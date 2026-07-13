@@ -115,39 +115,122 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Property Filtering System (Properties Page)
     // ==========================================
     const filterButtons = document.querySelectorAll('.filter-tab-btn');
+    const subFilterButtons = document.querySelectorAll('.sub-filter-btn');
     const propertyCards = document.querySelectorAll('.property-item');
+    const residentialSubFilters = document.getElementById('residentialSubFilters');
+    
+    const applyFilters = () => {
+        const activeMainBtn = document.querySelector('.filter-tab-btn.active');
+        const activeSubBtn = document.querySelector('.sub-filter-btn.active');
+        
+        if (!activeMainBtn) return;
+        
+        const mainFilter = activeMainBtn.getAttribute('data-filter');
+        const subFilter = activeSubBtn ? activeSubBtn.getAttribute('data-subfilter') : 'all';
+        
+        // Show/hide sub-filters panel
+        if (residentialSubFilters) {
+            if (mainFilter === 'residential') {
+                residentialSubFilters.classList.remove('d-none');
+            } else {
+                residentialSubFilters.classList.add('d-none');
+            }
+        }
+        
+        propertyCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const subtype = card.getAttribute('data-subtype');
+            
+            let showCard = false;
+            
+            if (mainFilter === 'all') {
+                showCard = true;
+            } else if (mainFilter === 'residential') {
+                if (category === 'residential') {
+                    if (subFilter === 'all' || subtype === subFilter) {
+                        showCard = true;
+                    }
+                }
+            } else {
+                if (category === mainFilter) {
+                    showCard = true;
+                }
+            }
+            
+            if (showCard) {
+                // Fade in and show
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 50);
+            } else {
+                // Fade out and hide
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    };
     
     if (filterButtons.length > 0 && propertyCards.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to current button
                 button.classList.add('active');
                 
-                const filterValue = button.getAttribute('data-filter');
+                // Reset sub-filters to "All" when changing main category
+                if (subFilterButtons.length > 0) {
+                    subFilterButtons.forEach(btn => {
+                        if (btn.getAttribute('data-subfilter') === 'all') {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+                }
                 
-                propertyCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    
-                    if (filterValue === 'all' || category === filterValue) {
-                        // Fade in and show
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        // Fade out and hide
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                });
+                applyFilters();
             });
         });
+        
+        if (subFilterButtons.length > 0) {
+            subFilterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    subFilterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    applyFilters();
+                });
+            });
+        }
+        
+        // Initial run to check query parameters (e.g. ?type=residential or ?type=residential-apartments)
+        const urlParams = new URLSearchParams(window.location.search);
+        let typeParam = urlParams.get('type');
+        if (typeParam) {
+            let subTypeParam = null;
+            if (typeParam.startsWith('residential-')) {
+                subTypeParam = typeParam.replace('residential-', '');
+                typeParam = 'residential';
+            }
+            
+            const matchingBtn = document.querySelector(`.filter-tab-btn[data-filter="${typeParam}"]`);
+            if (matchingBtn) {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                matchingBtn.classList.add('active');
+            }
+            
+            if (subTypeParam && subFilterButtons.length > 0) {
+                const matchingSubBtn = document.querySelector(`.sub-filter-btn[data-subfilter="${subTypeParam}"]`);
+                if (matchingSubBtn) {
+                    subFilterButtons.forEach(btn => btn.classList.remove('active'));
+                    matchingSubBtn.classList.add('active');
+                }
+            }
+        }
+        applyFilters();
     }
 
     // Set dynamic redirection URL for Web3Forms if not on file:// protocol
